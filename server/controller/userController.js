@@ -60,6 +60,7 @@ const login = async (req, res) => {
         }
 
         const token = jwt.sign({ userId: userData._id }, "blogerposttoken", { expiresIn: '1h' });
+        res.cookie("loginsession", token);
         res.status(200).json({ token,userId: userData._id });
 
     } catch (err) {

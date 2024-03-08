@@ -6,11 +6,13 @@ const morgan = require('morgan');
 const mongoose = require('./server/database/connection')
 const path = require('path')
 const userRoutes = require('./server/routes/user')
+const blogRoutes = require('./server/routes/blog')
 
 app.use(express.json())
 app.use(morgan('tiny'))
 
 app.use('/',userRoutes)
+app.use('/blog',blogRoutes)
 
 
 
