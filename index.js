@@ -7,9 +7,15 @@ const mongoose = require('./server/database/connection')
 const path = require('path')
 const userRoutes = require('./server/routes/user')
 const blogRoutes = require('./server/routes/blog')
+const cors = require('cors')
+const bodyparser = require('body-parser')
 
-app.use(express.json())
+app.use(bodyparser.json())
 app.use(morgan('tiny'))
+app.use(cors())
+
+app.use(bodyparser.urlencoded({extended:true}))
+
 
 app.use('/',userRoutes)
 app.use('/blog',blogRoutes)
