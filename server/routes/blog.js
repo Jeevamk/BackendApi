@@ -8,6 +8,6 @@ const blogController = require('../controller/blogController')
 route.get('/',blogController.showBlog)
 
 //add blog
-route.post('/add_blog',blogController.addBlog)
+// route.post('/add_blog',blogController.addBlog)
 
 module.exports = route
