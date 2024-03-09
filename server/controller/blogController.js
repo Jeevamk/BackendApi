@@ -17,20 +17,28 @@ const showBlog = async (req, res) => {
 };
 
 
-const addBlog = async(req,res)=>{
+const addBlog = async (req, res) => {
     try {
-        const { userId , title , discription } =req.body;
+        const userId = req.userId; 
+        const { title, discription , createdDate } = req.body;
+        
         const newBlog = new blogCollection({
-            userId,title,discription
-        })
+            userId,
+            title,
+            discription,
+            createdDate
+        });
+
         const savedBlog = await newBlog.save();
         res.status(201).json(savedBlog);
 
-    }catch(err){
+    } catch (err) {
         console.error('Error adding blog:', err);
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+
 
 
 

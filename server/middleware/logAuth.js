@@ -3,7 +3,8 @@ const keysecret = 'blogerposttoken';
 
 
 function logauth (req,res,next){
-    const token = req.cookies.loginsession;
+    const token = req.headers.Auth;
+    console.log(token);
     if(!token){
         return res.status(401).json({ message: 'Unauthorized' });
     }else{
@@ -16,6 +17,7 @@ function logauth (req,res,next){
           }
     }
 }
+
 
 
 module.exports = logauth;
