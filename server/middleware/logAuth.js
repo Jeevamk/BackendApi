@@ -3,8 +3,8 @@ const keysecret = 'blogerposttoken';
 
 
 function logauth (req,res,next){
-    const token = req.headers.Auth;
-    console.log(token);
+    const token = req.headers.auth
+    console.log('token',token);
     if(!token){
         return res.status(401).json({ message: 'Unauthorized' });
     }else{
@@ -20,4 +20,4 @@ function logauth (req,res,next){
 
 
 
-module.exports = logauth;
+module.exports = {logauth};

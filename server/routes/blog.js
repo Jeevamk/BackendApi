@@ -1,6 +1,6 @@
 const express = require('express')
 const route = express.Router();
-const logauth = require('../middleware/logAuth')
+const {logauth} = require('../middleware/logAuth')
 
 
 const blogController = require('../controller/blogController')
